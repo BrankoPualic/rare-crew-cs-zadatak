@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34622.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rare-crew-cs-zadatak", "rare-crew-cs-zadatak\rare-crew-cs-zadatak.csproj", "{F84A7D15-C9FC-4AB5-8407-F0BB9064E629}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F84A7D15-C9FC-4AB5-8407-F0BB9064E629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F84A7D15-C9FC-4AB5-8407-F0BB9064E629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F84A7D15-C9FC-4AB5-8407-F0BB9064E629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F84A7D15-C9FC-4AB5-8407-F0BB9064E629}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DC7145C5-180D-4FDE-8F4D-D9B3640D01BE}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,25 @@
+﻿@model List<Employee>
+
+<table class="employeeTable">
+	<thead>
+		<tr>
+			<th>
+				Name
+			</th>
+			<th>
+				Total time worked
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var employee in Model)
+		{
+			<tr class="@(employee.MonthlyHours < 100 ? "lessThanHunderdHours" : "")">
+				<td>@employee.EmployeeName</td>
+				<td>@employee.MonthlyHours hrs</td>
+			</tr>
+
+		}
+	</tbody>
+</table>
