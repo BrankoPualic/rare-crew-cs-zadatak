@@ -23,3 +23,71 @@
 		}
 	</tbody>
 </table>
+<div id="downloadButton" class="my-3"></div>
+<div id="chartContainer"></div>
+
+
+@section Scripts {
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            let totalHours = @Model.Sum(e => e.MonthlyHours);
+
+            let employeeData = [];
+        @foreach (var employee in Model)
+        {
+            <text>
+                            var percentage = ((@employee.MonthlyHours / totalHours) * 100).toFixed(2);
+                            employeeData.push({ y: percentage, legendText: '@employee.EmployeeName', label: '@employee.EmployeeName' });
+            </text>
+        }
+
+                    var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                legend: {
+                    verticalAlign: "center",
+                    horizontalAlign: "left",
+                    fontSize: 15,
+                    fontFamily: "Helvetica"
+                },
+                theme: "light2",
+                data: [
+                    {
+                        type: "pie",
+                        indexLabelFontFamily: "Garamond",
+                        indexLabelFontSize: 15,
+                        indexLabel: "{label} {y}%",
+                        startAngle: -20,
+                        showInLegend: true,
+                        toolTipContent: "{legendText} {y}%",
+                        dataPoints: employeeData
+                    }
+                ]
+            });
+
+            chart.render();
+
+            const btn = document.createElement("button");
+            btn.classList.add("btn", "btn-primary");
+            btn.textContent = "Download Pie Chart";
+            btn.addEventListener('click', () => {
+                downloadChartAsImage();
+            });
+            const container = document.getElementById("downloadButton");
+            container.appendChild(btn);
+
+
+            function downloadChartAsImage() {
+                const canvas = document.getElementsByTagName("canvas")[0];
+                const imageData = canvas.toDataURL("image/png");
+
+                const link = document.createElement("a");
+                link.href = imageData;
+                link.download = "pie_chart.png";
+                container.appendChild(link);
+                link.click();
+                container.removeChild(link);
+            }
+        };
+    </script>
+}
